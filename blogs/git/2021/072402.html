@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Git本地库操作及分支处理 | 小迷糊</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/blog/logo.png">
+    <meta name="description" content="一名喜欢学习、探索新知识的前端程序媛，记录自己的前端成长之路，前端路上不迷糊">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.4607b592.css" as="style"><link rel="preload" href="/blog/assets/js/app.14bc1ec9.js" as="script"><link rel="preload" href="/blog/assets/js/3.38776f79.js" as="script"><link rel="preload" href="/blog/assets/js/1.88753400.js" as="script"><link rel="preload" href="/blog/assets/js/74.892b6e0e.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.03f17d16.js"><link rel="prefetch" href="/blog/assets/js/11.86f3b9ac.js"><link rel="prefetch" href="/blog/assets/js/12.4b911d63.js"><link rel="prefetch" href="/blog/assets/js/13.ca30070e.js"><link rel="prefetch" href="/blog/assets/js/14.e5e9227c.js"><link rel="prefetch" href="/blog/assets/js/15.c0578f4b.js"><link rel="prefetch" href="/blog/assets/js/16.222c190c.js"><link rel="prefetch" href="/blog/assets/js/17.bd0f7996.js"><link rel="prefetch" href="/blog/assets/js/18.2d3283aa.js"><link rel="prefetch" href="/blog/assets/js/19.b7b0b27b.js"><link rel="prefetch" href="/blog/assets/js/20.94b0c3e5.js"><link rel="prefetch" href="/blog/assets/js/21.a2bc550f.js"><link rel="prefetch" href="/blog/assets/js/22.f1ff2b7d.js"><link rel="prefetch" href="/blog/assets/js/23.158f1154.js"><link rel="prefetch" href="/blog/assets/js/24.d4b71a98.js"><link rel="prefetch" href="/blog/assets/js/25.cef79d58.js"><link rel="prefetch" href="/blog/assets/js/26.80ac6d2d.js"><link rel="prefetch" href="/blog/assets/js/27.4e14ff5a.js"><link rel="prefetch" href="/blog/assets/js/28.d8953d4a.js"><link rel="prefetch" href="/blog/assets/js/29.7e333c29.js"><link rel="prefetch" href="/blog/assets/js/30.e2d7153a.js"><link rel="prefetch" href="/blog/assets/js/31.a8e81d66.js"><link rel="prefetch" href="/blog/assets/js/32.dfa2ad20.js"><link rel="prefetch" href="/blog/assets/js/33.b1df30ae.js"><link rel="prefetch" href="/blog/assets/js/34.05f7f73d.js"><link rel="prefetch" href="/blog/assets/js/35.9c182549.js"><link rel="prefetch" href="/blog/assets/js/36.7a17e340.js"><link rel="prefetch" href="/blog/assets/js/37.46864d28.js"><link rel="prefetch" href="/blog/assets/js/38.efaa226d.js"><link rel="prefetch" href="/blog/assets/js/39.6db0e0b1.js"><link rel="prefetch" href="/blog/assets/js/4.c1935ad0.js"><link rel="prefetch" href="/blog/assets/js/40.3c1ea0c1.js"><link rel="prefetch" href="/blog/assets/js/41.9bee1653.js"><link rel="prefetch" href="/blog/assets/js/42.0cbf02c4.js"><link rel="prefetch" href="/blog/assets/js/43.bdb7cfed.js"><link rel="prefetch" href="/blog/assets/js/44.d38e848a.js"><link rel="prefetch" href="/blog/assets/js/45.959b99b7.js"><link rel="prefetch" href="/blog/assets/js/46.30879127.js"><link rel="prefetch" href="/blog/assets/js/47.12e61563.js"><link rel="prefetch" href="/blog/assets/js/48.1a23bc9d.js"><link rel="prefetch" href="/blog/assets/js/49.f3a07a73.js"><link rel="prefetch" href="/blog/assets/js/5.b81564a8.js"><link rel="prefetch" href="/blog/assets/js/50.58b060dc.js"><link rel="prefetch" href="/blog/assets/js/51.abe1e4bc.js"><link rel="prefetch" href="/blog/assets/js/52.a8be2591.js"><link rel="prefetch" href="/blog/assets/js/53.6c1ed115.js"><link rel="prefetch" href="/blog/assets/js/54.b77c83b7.js"><link rel="prefetch" href="/blog/assets/js/55.cf5fc38d.js"><link rel="prefetch" href="/blog/assets/js/56.e01138bd.js"><link rel="prefetch" href="/blog/assets/js/57.b73c4090.js"><link rel="prefetch" href="/blog/assets/js/58.b77da72a.js"><link rel="prefetch" href="/blog/assets/js/59.fa55d054.js"><link rel="prefetch" href="/blog/assets/js/6.886bfdc8.js"><link rel="prefetch" href="/blog/assets/js/60.65fc8e02.js"><link rel="prefetch" href="/blog/assets/js/61.42be726f.js"><link rel="prefetch" href="/blog/assets/js/62.b5449f12.js"><link rel="prefetch" href="/blog/assets/js/63.d33e5f85.js"><link rel="prefetch" href="/blog/assets/js/64.b69f3d0b.js"><link rel="prefetch" href="/blog/assets/js/65.a2e7fee2.js"><link rel="prefetch" href="/blog/assets/js/66.de4c93a7.js"><link rel="prefetch" href="/blog/assets/js/67.5d2cbf4a.js"><link rel="prefetch" href="/blog/assets/js/68.d2655689.js"><link rel="prefetch" href="/blog/assets/js/69.06adeaad.js"><link rel="prefetch" href="/blog/assets/js/7.1cfb3480.js"><link rel="prefetch" href="/blog/assets/js/70.24b81a64.js"><link rel="prefetch" href="/blog/assets/js/71.859eda2a.js"><link rel="prefetch" href="/blog/assets/js/72.3c5ed41d.js"><link rel="prefetch" href="/blog/assets/js/73.6a9a1d3c.js"><link rel="prefetch" href="/blog/assets/js/75.bb4a8109.js"><link rel="prefetch" href="/blog/assets/js/76.9aaecf70.js"><link rel="prefetch" href="/blog/assets/js/77.139061e4.js"><link rel="prefetch" href="/blog/assets/js/78.fb3f9354.js"><link rel="prefetch" href="/blog/assets/js/79.d7648b35.js"><link rel="prefetch" href="/blog/assets/js/8.b351ed33.js"><link rel="prefetch" href="/blog/assets/js/80.e432d76e.js"><link rel="prefetch" href="/blog/assets/js/81.837374f7.js"><link rel="prefetch" href="/blog/assets/js/82.3f65934c.js"><link rel="prefetch" href="/blog/assets/js/83.1f6b84d9.js"><link rel="prefetch" href="/blog/assets/js/84.9cddee26.js"><link rel="prefetch" href="/blog/assets/js/85.526d5b2c.js"><link rel="prefetch" href="/blog/assets/js/86.cc007c0a.js"><link rel="prefetch" href="/blog/assets/js/87.e7f0a90f.js"><link rel="prefetch" href="/blog/assets/js/88.4dd8de33.js"><link rel="prefetch" href="/blog/assets/js/9.3fd200c6.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.4607b592.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-1156296a><div data-v-1156296a><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-1156296a data-v-1156296a><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-4e82dffc data-v-1156296a data-v-1156296a><h3 class="title" data-v-4e82dffc data-v-4e82dffc>小迷糊</h3> <p class="description" data-v-4e82dffc data-v-4e82dffc>一名喜欢学习、探索新知识的前端程序媛，记录自己的前端成长之路，前端路上不迷糊</p> <label id="box" class="inputBox" data-v-4e82dffc data-v-4e82dffc><input type="password" value="" data-v-4e82dffc> <span data-v-4e82dffc>Konck! Knock!</span> <button data-v-4e82dffc>OK</button></label> <div class="footer" data-v-4e82dffc data-v-4e82dffc><span data-v-4e82dffc><i class="iconfont reco-theme" data-v-4e82dffc></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-4e82dffc>vuePress-theme-reco</a></span> <span data-v-4e82dffc><i class="iconfont reco-copyright" data-v-4e82dffc></i> <a data-v-4e82dffc><span data-v-4e82dffc>doubao</span>
+            
+          <span data-v-4e82dffc>2021 - </span>
+          2022
+        </a></span></div></div> <div class="hide" data-v-1156296a><header class="navbar" data-v-1156296a><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><img src="/blog/logo.png" alt="小迷糊" class="logo"> <span class="site-name">小迷糊</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link"><i class="iconfont reco-home"></i>
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      博客
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/categories/工具/" class="nav-link"><i class="undefined"></i>
+  工具
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/JavaScript/" class="nav-link"><i class="undefined"></i>
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/LeetCode/" class="nav-link"><i class="undefined"></i>
+  LeetCode
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/CSS/" class="nav-link"><i class="undefined"></i>
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/git/" class="nav-link"><i class="undefined"></i>
+  git
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/Node.js/" class="nav-link"><i class="undefined"></i>
+  Node.js
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/other/" class="nav-link"><i class="undefined"></i>
+  other
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/docs/interview/html.html" class="nav-link"><i class="iconfont reco-message"></i>
+  面经
+</a></div><div class="nav-item"><a href="/blog/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/blog/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-1156296a></div> <aside class="sidebar" data-v-1156296a><div class="personal-info-wrapper" data-v-828910c6 data-v-1156296a><img src="/blog/logo.png" alt="author-avatar" class="personal-img" data-v-828910c6> <h3 class="name" data-v-828910c6>
+    doubao
+  </h3> <div class="num" data-v-828910c6><div data-v-828910c6><h3 data-v-828910c6>78</h3> <h6 data-v-828910c6>文章</h6></div> <div data-v-828910c6><h3 data-v-828910c6>31</h3> <h6 data-v-828910c6>标签</h6></div></div> <ul class="social-links" data-v-828910c6></ul> <hr data-v-828910c6></div> <nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link"><i class="iconfont reco-home"></i>
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      博客
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/categories/工具/" class="nav-link"><i class="undefined"></i>
+  工具
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/JavaScript/" class="nav-link"><i class="undefined"></i>
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/LeetCode/" class="nav-link"><i class="undefined"></i>
+  LeetCode
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/CSS/" class="nav-link"><i class="undefined"></i>
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/git/" class="nav-link"><i class="undefined"></i>
+  git
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/Node.js/" class="nav-link"><i class="undefined"></i>
+  Node.js
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/other/" class="nav-link"><i class="undefined"></i>
+  other
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/docs/interview/html.html" class="nav-link"><i class="iconfont reco-message"></i>
+  面经
+</a></div><div class="nav-item"><a href="/blog/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/blog/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-4e82dffc data-v-1156296a><h3 class="title" data-v-4e82dffc data-v-4e82dffc>Git本地库操作及分支处理</h3> <!----> <label id="box" class="inputBox" data-v-4e82dffc data-v-4e82dffc><input type="password" value="" data-v-4e82dffc> <span data-v-4e82dffc>Konck! Knock!</span> <button data-v-4e82dffc>OK</button></label> <div class="footer" data-v-4e82dffc data-v-4e82dffc><span data-v-4e82dffc><i class="iconfont reco-theme" data-v-4e82dffc></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-4e82dffc>vuePress-theme-reco</a></span> <span data-v-4e82dffc><i class="iconfont reco-copyright" data-v-4e82dffc></i> <a data-v-4e82dffc><span data-v-4e82dffc>doubao</span>
+            
+          <span data-v-4e82dffc>2021 - </span>
+          2022
+        </a></span></div></div> <div data-v-1156296a><main class="page"><section><div class="page-title"><h1 class="title">Git本地库操作及分支处理</h1> <div data-v-1ff7123e><i class="iconfont reco-account" data-v-1ff7123e><span data-v-1ff7123e>doubao</span></i> <i class="iconfont reco-date" data-v-1ff7123e><span data-v-1ff7123e>2021-7-24</span></i> <i class="iconfont reco-eye" data-v-1ff7123e><span id="/blog/blogs/git/2021/072402.html" data-flag-title="Your Article Title" class="leancloud-visitors" data-v-1ff7123e><a class="leancloud-visitors-count" style="font-size:.9rem;font-weight:normal;color:#999;"></a></span></i> <i class="tags iconfont reco-tag" data-v-1ff7123e><span class="tag-item" data-v-1ff7123e>git</span><span class="tag-item" data-v-1ff7123e>工具</span></i></div></div> <div class="theme-reco-content content__default"><div class="custom-block tip"><p class="title"></p><p>Git本地库操作及分支处理，从视频和实战中总结</p></div> <blockquote><p>git命令行中选中即复制，粘贴为<code>shift+ins</code>，清屏为<code>ctrl+l</code>，查看当前文件<code>ll</code>，查看当前所有文件（包括隐藏文件）:<code>ll -lA</code>，查看文件内容为<code>cat 文件名</code>，创建新文件为<code>mkdir 文件名</code>。</p></blockquote> <h2 id="本地库初始化"><a href="#本地库初始化" class="header-anchor">#</a> 本地库初始化</h2> <p>右键点击<code>Git Bath Here</code>输入初始化命令：</p> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code>git init
+
+<span class="token comment">//执行结果：初始化了一个空的git仓库</span>
+$ git init
+Initialized empty Git repository <span class="token keyword">in</span> <span class="token constant">D</span><span class="token operator">:</span><span class="token operator">/</span>programming<span class="token operator">/</span>git<span class="token operator">/</span>test<span class="token operator">/</span><span class="token punctuation">.</span>git<span class="token operator">/</span>
+
+<span class="token comment">//.git文件夹的内容</span>
+$ ll <span class="token punctuation">.</span>git<span class="token operator">/</span>
+total <span class="token number">7</span>
+<span class="token operator">-</span>rw<span class="token operator">-</span>r<span class="token operator">--</span>r<span class="token operator">--</span> <span class="token number">1</span> huawei <span class="token number">197121</span>  <span class="token number">23</span> Jul <span class="token number">16</span> <span class="token number">10</span><span class="token operator">:</span><span class="token number">24</span> <span class="token constant">HEAD</span>
+<span class="token operator">-</span>rw<span class="token operator">-</span>r<span class="token operator">--</span>r<span class="token operator">--</span> <span class="token number">1</span> huawei <span class="token number">197121</span> <span class="token number">130</span> Jul <span class="token number">16</span> <span class="token number">10</span><span class="token operator">:</span><span class="token number">24</span> config
+<span class="token operator">-</span>rw<span class="token operator">-</span>r<span class="token operator">--</span>r<span class="token operator">--</span> <span class="token number">1</span> huawei <span class="token number">197121</span>  <span class="token number">73</span> Jul <span class="token number">16</span> <span class="token number">10</span><span class="token operator">:</span><span class="token number">24</span> description
+drwxr<span class="token operator">-</span>xr<span class="token operator">-</span>x <span class="token number">1</span> huawei <span class="token number">197121</span>   <span class="token number">0</span> Jul <span class="token number">16</span> <span class="token number">10</span><span class="token operator">:</span><span class="token number">24</span> hooks<span class="token operator">/</span>
+drwxr<span class="token operator">-</span>xr<span class="token operator">-</span>x <span class="token number">1</span> huawei <span class="token number">197121</span>   <span class="token number">0</span> Jul <span class="token number">16</span> <span class="token number">10</span><span class="token operator">:</span><span class="token number">24</span> info<span class="token operator">/</span>
+drwxr<span class="token operator">-</span>xr<span class="token operator">-</span>x <span class="token number">1</span> huawei <span class="token number">197121</span>   <span class="token number">0</span> Jul <span class="token number">16</span> <span class="token number">10</span><span class="token operator">:</span><span class="token number">24</span> objects<span class="token operator">/</span>
+drwxr<span class="token operator">-</span>xr<span class="token operator">-</span>x <span class="token number">1</span> huawei <span class="token number">197121</span>   <span class="token number">0</span> Jul <span class="token number">16</span> <span class="token number">10</span><span class="token operator">:</span><span class="token number">24</span> refs<span class="token operator">/</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><p><strong>注</strong>：</p> <ol><li>可以通过<code>mkdir 文件名</code>来创建新文件</li> <li><code>.git</code>是隐藏文件，如果<code>ls -lA</code>命令可以查看</li> <li>通过<code>ll</code>命令查看当前目录下的文件</li> <li>.git目录存放的是本地库相关的子目录和文件，不要删除，也不要修改</li></ol> <h3 id="设置签名"><a href="#设置签名" class="header-anchor">#</a> 设置签名</h3> <ol><li>形式：
+<ul><li>用户名：tom</li> <li>Email：goodMorning@atguigu.com</li></ul></li> <li>作用：区分不同开发人员身份</li> <li>命令：
+<ul><li><p>项目级别/仓库级别：仅在当前本地库范围有效</p> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code>git config user<span class="token punctuation">.</span>name tom_pro
+git config user<span class="token punctuation">.</span>email goodMorning_pro@atguigu<span class="token punctuation">.</span>com
+<span class="token comment">//信息保存位置：./.git/config文件（可通过`cat 文件`来查看） </span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div></li> <li><p>系统用户级别：登录当前操作系统的用户范围</p> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code>git config <span class="token operator">--</span>global user<span class="token punctuation">.</span>name tom
+git config <span class="token operator">--</span>global user<span class="token punctuation">.</span>email goodMorning@atguigu<span class="token punctuation">.</span>com
+<span class="token comment">//信息保存位置：~/.gitconfig文件</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div></li> <li><p>二者都没有是不允许的，后面执行git命令会报错，<strong>且重复设置可覆盖</strong></p></li></ul></li> <li>查看签名：
+<ul><li><p>项目级别：</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code>ll .git <span class="token comment">#可看到.git目录中有config文件</span>
+<span class="token function">cat</span> .git/config <span class="token comment">#查看文件内容，设置了签名可看见[user]项</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div></li> <li><p>系统级别：</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token builtin class-name">cd</span> ~ <span class="token comment">#回到系统目录</span>
+<span class="token builtin class-name">pwd</span> <span class="token comment">#查看系统目录的路径</span>
+ll -lA <span class="token comment">#配置了系统签名可看见系统目录有.gitconfig文件</span>
+<span class="token function">cat</span> .gitconfig
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div></li></ul></li></ol> <p><strong>注：这里设置的签名和登录代码托管中心的账号、密码没有任何关系</strong></p> <h2 id="基本操作"><a href="#基本操作" class="header-anchor">#</a> 基本操作</h2> <ol><li>新建一个文件</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>vim 文件名
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ul><li>随便输入文件内容</li> <li>内容输完后，按Esc，在最下面输入:wq退出编辑界面</li></ul> <ol start="2"><li>查看状态
+<ul><li>查看工作区、暂存区状态</li></ul></li></ol> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code>git status
+
+<span class="token comment">//在没有添加和提交文件前：</span>
+$ git status
+On branch master<span class="token comment">//在master分支上</span>
+No commits yet<span class="token comment">//本地库没有提交的东西</span>
+nothing to <span class="token function">commit</span> <span class="token punctuation">(</span>create<span class="token operator">/</span>copy files and use <span class="token string">&quot;git add&quot;</span> to track<span class="token punctuation">)</span><span class="token comment">//暂存区没有提交的东西</span>
+
+<span class="token comment">//在添加了文件，但没有git add提交前：</span>
+$ git status
+On branch master
+No commits yet
+Untracked files<span class="token operator">:</span>
+  <span class="token punctuation">(</span>use <span class="token string">&quot;git add &lt;file&gt;...&quot;</span> to include <span class="token keyword">in</span> what will be committed<span class="token punctuation">)</span><span class="token comment">//文件没有被git追踪，希望执行git add</span>
+        good<span class="token punctuation">.</span>txt
+nothing added to commit but untracked files <span class="token function">present</span> <span class="token punctuation">(</span>use <span class="token string">&quot;git add&quot;</span> to track<span class="token punctuation">)</span>
+
+<span class="token comment">//提交到暂存区之后：</span>
+$ git status
+On branch master
+No commits yet
+Changes to be committed<span class="token operator">:</span>
+  <span class="token punctuation">(</span>use <span class="token string">&quot;git rm --cached &lt;file&gt;...&quot;</span> to unstage<span class="token punctuation">)</span><span class="token comment">//撤销提交操作，只是撤销，不会删除在工作区的good.txt文件</span>
+        <span class="token keyword">new</span> <span class="token class-name">file</span><span class="token operator">:</span>   good<span class="token punctuation">.</span>txt
+
+<span class="token comment">//提交到本地库之后：</span>
+$ git status
+On branch master
+nothing to commit<span class="token punctuation">,</span> working tree clean
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br></div></div><ol start="3"><li>添加操作
+<ul><li>将工作区的“新建/修改”添加到暂存区</li> <li>如果是修改文件，可以不再git add，直接git commit</li> <li>添加到暂存区是可以撤回的，但提交到本地库就没有撤回操作了</li></ul></li></ol> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token comment">//添加到暂存区</span>
+git add 文件名
+<span class="token comment">//将所有文件添加到暂存区</span>
+git add <span class="token punctuation">.</span>
+
+git rm <span class="token operator">--</span>cached 文件名
+<span class="token comment">//从暂存区移除</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><ol start="4"><li>提交操作
+<ul><li>将暂存区的内容提交到本地库</li> <li>如果提交暂存区的所有文件或者解决冲突时，commit后面不用加文件名</li></ul></li></ol> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code>git commit 文件名
+
+<span class="token comment">//回车后会出现vim界面，要求输入提交信息（就像代码注释一样）</span>
+<span class="token comment">//在最下面输入':set nu'可显示行号（此命令可以不用）</span>
+<span class="token comment">//按'i'进入编辑模式</span>
+<span class="token comment">//编辑后按Esc，在最下面输入:wq退出编辑界面</span>
+
+<span class="token comment">//执行结果:</span>
+$ git commit good<span class="token punctuation">.</span>txt
+warning<span class="token operator">:</span> <span class="token constant">LF</span> will be replaced by <span class="token constant">CRLF</span> <span class="token keyword">in</span> good<span class="token punctuation">.</span>txt<span class="token punctuation">.</span>
+<span class="token punctuation">[</span><span class="token function">master</span> <span class="token punctuation">(</span>root<span class="token operator">-</span>commit<span class="token punctuation">)</span> f8cc15d<span class="token punctuation">]</span> my first commit<span class="token comment">//将第一次提交作为根提交</span>
+ <span class="token number">1</span> file changed<span class="token punctuation">,</span> <span class="token number">3</span> <span class="token function">insertions</span><span class="token punctuation">(</span><span class="token operator">+</span><span class="token punctuation">)</span><span class="token comment">//一个文件修改，3行</span>
+ create mode <span class="token number">100644</span> good<span class="token punctuation">.</span>txt
+
+ git commit <span class="token operator">-</span>m <span class="token string">&quot;提交信息&quot;</span> 文件名
+<span class="token comment">//这样就不用进文本编辑器了</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><ol start="5"><li>版本的前进和后退</li></ol> <blockquote><p>操作实质就是移动HEAD指针，它指向当前版本。</p></blockquote> <p>查看版本的历史记录：</p> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code>git log
+git log <span class="token operator">--</span>pretty<span class="token operator">=</span>oneline
+<span class="token comment">//当版本信息过多时，可以使用第二条命令，让每条信息只显示一行（空格向下翻页，b向上翻页，q退出）</span>
+git log <span class="token operator">--</span>oneline<span class="token comment">//日志信息只显示一部分</span>
+git reflog<span class="token comment">//显示出HEAD指针要移动的次数</span>
+
+<span class="token comment">//执行结果</span>
+$ git log
+commit <span class="token function">f8cc15dbf75e66bf07e96bfe7d3675ca737b9dbd</span> <span class="token punctuation">(</span><span class="token constant">HEAD</span> <span class="token operator">-</span><span class="token operator">&gt;</span> master<span class="token punctuation">)</span><span class="token comment">//中间的数值是哈希值（索引值），右边的HEAD指针指向当前的版本，版本的前进后退就是通过改变HEAD指针的指向来实现的</span>
+Author<span class="token operator">:</span> tom <span class="token operator">&lt;</span>goodMorning@qq<span class="token punctuation">.</span>com<span class="token operator">&gt;</span>
+Date<span class="token operator">:</span>   Fri Jul <span class="token number">16</span> <span class="token number">11</span><span class="token operator">:</span><span class="token number">28</span><span class="token operator">:</span><span class="token number">31</span> <span class="token number">2021</span> <span class="token operator">+</span><span class="token number">0800</span>
+
+    my first commit
+    
+$ git log <span class="token operator">--</span>pretty<span class="token operator">=</span>oneline
+<span class="token function">c5eeeac23ab7a74da4c5baa7da154254db8621a5</span> <span class="token punctuation">(</span><span class="token constant">HEAD</span> <span class="token operator">-</span><span class="token operator">&gt;</span> master<span class="token punctuation">)</span> add twice
+ef3e37de49a24c21249ab60151f0f00716de3df1 third
+e52284f6df167e21759573bd2e986c69c595118d second
+f8cc15dbf75e66bf07e96bfe7d3675ca737b9dbd my first commit
+
+$ git log <span class="token operator">--</span>oneline
+<span class="token function">c5eeeac</span> <span class="token punctuation">(</span><span class="token constant">HEAD</span> <span class="token operator">-</span><span class="token operator">&gt;</span> master<span class="token punctuation">)</span> add twice
+ef3e37d third
+e52284f second
+f8cc15d my first commit
+
+$ git reflog
+<span class="token function">c5eeeac</span> <span class="token punctuation">(</span><span class="token constant">HEAD</span> <span class="token operator">-</span><span class="token operator">&gt;</span> master<span class="token punctuation">)</span> <span class="token constant">HEAD</span>@<span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token operator">:</span> commit<span class="token operator">:</span> add twice
+ef3e37d <span class="token constant">HEAD</span>@<span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token operator">:</span> commit<span class="token operator">:</span> third
+e52284f <span class="token constant">HEAD</span>@<span class="token punctuation">{</span><span class="token number">2</span><span class="token punctuation">}</span><span class="token operator">:</span> commit<span class="token operator">:</span> second
+f8cc15d <span class="token constant">HEAD</span>@<span class="token punctuation">{</span><span class="token number">3</span><span class="token punctuation">}</span><span class="token operator">:</span> <span class="token function">commit</span> <span class="token punctuation">(</span>initial<span class="token punctuation">)</span><span class="token operator">:</span> my first commit<span class="token comment">//{}里面是HEAD指针要移动的步数</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br></div></div><p>操作方法：</p> <ul><li>基于索引值操作（不用考虑前进还是后退，只要选中你想要的版本就可以了）</li></ul> <div class="language-JavaScript line-numbers-mode"><pre class="language-javascript"><code>git reset <span class="token operator">--</span>hard hash值<span class="token comment">//该索引为想回退版本的哈希值</span>
+
+huawei@<span class="token constant">LAPTOP</span><span class="token operator">-</span><span class="token constant">E998T2VO</span> <span class="token constant">MINGW64</span> <span class="token operator">/</span>d<span class="token operator">/</span>programming<span class="token operator">/</span>git<span class="token operator">/</span><span class="token function">test</span> <span class="token punctuation">(</span>master<span class="token punctuation">)</span>
+$ git reset <span class="token operator">--</span>hard ef3e37d
+<span class="token constant">HEAD</span> is now at ef3e37d third
+
+huawei@<span class="token constant">LAPTOP</span><span class="token operator">-</span><span class="token constant">E998T2VO</span> <span class="token constant">MINGW64</span> <span class="token operator">/</span>d<span class="token operator">/</span>programming<span class="token operator">/</span>git<span class="token operator">/</span><span class="token function">test</span> <span class="token punctuation">(</span>master<span class="token punctuation">)</span>
+$ git reflog
+<span class="token function">ef3e37d</span> <span class="token punctuation">(</span><span class="token constant">HEAD</span> <span class="token operator">-</span><span class="token operator">&gt;</span> master<span class="token punctuation">)</span> <span class="token constant">HEAD</span>@<span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token operator">:</span> reset<span class="token operator">:</span> moving to ef3e37d<span class="token comment">//当前指针指向位置</span>
+<span class="token comment">//版本列表及指针位置</span>
+c5eeeac <span class="token constant">HEAD</span>@<span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token operator">:</span> commit<span class="token operator">:</span> add twice
+<span class="token function">ef3e37d</span> <span class="token punctuation">(</span><span class="token constant">HEAD</span> <span class="token operator">-</span><span class="token operator">&gt;</span> master<span class="token punctuation">)</span> <span class="token constant">HEAD</span>@<span class="token punctuation">{</span><span class="token number">2</span><span class="token punctuation">}</span><span class="token operator">:</span> commit<span class="token operator">:</span> third
+e52284f <span class="token constant">HEAD</span>@<span class="token punctuation">{</span><span class="token number">3</span><span class="token punctuation">}</span><span class="token operator">:</span> commit<span class="token operator">:</span> second
+f8cc15d <span class="token constant">HEAD</span>@<span class="token punctuation">{</span><span class="token number">4</span><span class="token punctuation">}</span><span class="token operator">:</span> <span class="token function">commit</span> <span class="token punctuation">(</span>initial<span class="token punctuation">)</span><span class="token operator">:</span> my first commit
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><ul><li>使用^符号（只能后退）</li></ul> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code>git reset <span class="token operator">--</span>hard <span class="token constant">HEAD</span><span class="token operator">^</span><span class="token comment">//n个^就退n步</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ul><li>使用~符号（只能后退）</li></ul> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code>git reset <span class="token operator">--</span>hard <span class="token constant">HEAD</span><span class="token operator">~</span>n<span class="token comment">//n表示后退n步</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ol start="6"><li>reset命令的三个参数对比
+<ol><li>--soft
+<ul><li>仅仅在本地库移动HEAD指针</li> <li>相当于commit的撤销操作</li></ul></li> <li>--mixed
+<ul><li>在本地库移动HEAD指针</li> <li>重置暂存区</li> <li>相当于add的撤销操作</li></ul></li> <li>--hard
+<ul><li>在本地库移动HEAD指针</li> <li>重置暂存区</li> <li>重置工作区</li></ul></li></ol></li> <li>永久删除文件并找回</li></ol> <p>从本地库中删除文件：</p> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code>rm aaa<span class="token punctuation">.</span>txtgit add aaa<span class="token punctuation">.</span>txtgit commit <span class="token operator">-</span>m <span class="token string">&quot;delete aaa.txt&quot;</span> aaa<span class="token punctuation">.</span>txt
+<span class="token comment">//提交删除操作</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>找回文件：</p> <ul><li>只要提交到了本地库，都会留下记录，可以根据记录找回</li> <li>通过版本前进后退操作根据hash值找回文件</li></ul> <ol start="8"><li>比较文件</li></ol> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token comment">//修改文件后将工作区中文件和暂存区的文件进行比较</span>
+git diff apple<span class="token punctuation">.</span>txt
+
+<span class="token comment">//执行结果</span>
+$ git diff apple<span class="token punctuation">.</span>txt
+diff <span class="token operator">--</span>git a<span class="token operator">/</span>apple<span class="token punctuation">.</span>txt b<span class="token operator">/</span>apple<span class="token punctuation">.</span>txt
+index <span class="token number">4</span>c479de<span class="token punctuation">.</span><span class="token number">.67</span>a8a27 <span class="token number">100644</span>
+<span class="token operator">--</span><span class="token operator">-</span> a<span class="token operator">/</span>apple<span class="token punctuation">.</span>txt
+<span class="token operator">++</span><span class="token operator">+</span> b<span class="token operator">/</span>apple<span class="token punctuation">.</span>txt
+@@ <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span> @@
+ apple
+<span class="token operator">+</span>git diff
+<span class="token comment">//+表示修改了的，-表示删除了的</span>
+
+<span class="token comment">//如果将暂存区的文件和本地库的文件比较就会显示区别</span>
+git diff <span class="token constant">HEAD</span> apple<span class="token punctuation">.</span>txt
+
+<span class="token comment">//和某个历史版本比较</span>
+git diff <span class="token constant">HEAD</span><span class="token operator">^</span> apple<span class="token punctuation">.</span>txt
+
+<span class="token comment">//如果不加文件参数，则会列出当前工作区中所有文件的比较</span>
+git diff
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><h2 id="分支管理"><a href="#分支管理" class="header-anchor">#</a> 分支管理</h2> <blockquote><p>分支：在版本控制过程中，使用多条线同时推进多个任务。</p></blockquote> <img src="/blog/blogimg/image-20210719093548207.png" alt="foo"> <ul><li>可以同时并行推进多个功能开发，提高开发效率</li> <li>各个分支彼此独立，互不影响，失败的分支删除重新开始即可</li></ul> <h2 id="分支操作"><a href="#分支操作" class="header-anchor">#</a> 分支操作</h2> <ol><li>创建分支</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>git branch 分支名
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ol start="2"><li>查看所有分支</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>git branch -v
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ol start="3"><li>切换分支</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>git checkout 分支名
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ol start="4"><li>合并分支
+<ul><li>切换到接受修改的分支上（被合并，增加新内容）</li> <li>执行merge命令</li></ul></li></ol> <div class="language-JavaScript line-numbers-mode"><pre class="language-javascript"><code>git checkout mastergit merge hot<span class="token operator">-</span>fix
+<span class="token comment">//以上命令就是将hot-fix合并到master</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><ol start="5"><li>解决冲突</li></ol> <blockquote><p>如果两个分支修改的是同一个文件的同一位置就会产生冲突。</p></blockquote> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token comment">//产生冲突</span>
+$ git merge hot<span class="token operator">-</span>fix
+Auto<span class="token operator">-</span>merging good<span class="token punctuation">.</span>txt
+<span class="token constant">CONFLICT</span> <span class="token punctuation">(</span>content<span class="token punctuation">)</span><span class="token operator">:</span> Merge conflict <span class="token keyword">in</span> good<span class="token punctuation">.</span>txt
+Automatic merge failed<span class="token punctuation">;</span> fix conflicts and then commit the result<span class="token punctuation">.</span>
+
+$ cat good<span class="token punctuation">.</span>txt
+aaaaaaaa
+bbbbbbbb
+cccccccc
+dddddddd
+<span class="token operator">&lt;&lt;</span><span class="token operator">&lt;&lt;</span><span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> <span class="token constant">HEAD</span> <span class="token comment">//当前分支的内容</span>
+eeeeeeee edit by master
+<span class="token operator">===</span><span class="token operator">===</span><span class="token operator">=</span> <span class="token comment">//分割冲突部分</span>
+eeeeeeee edit by hot<span class="token operator">-</span>fix
+<span class="token operator">&gt;&gt;&gt;</span><span class="token operator">&gt;&gt;&gt;</span><span class="token operator">&gt;</span> hot<span class="token operator">-</span>fix
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><p>冲突的解决：</p> <ol><li>编辑文件，删除特殊符号</li> <li>把文件修改到满意的程度，保存退出</li> <li>git add [文件名]</li> <li>git commit -m &quot;日志信息&quot;（后面不能加文件名，否则会报错）</li></ol></div></section> <footer class="page-edit"><!----> <!----></footer> <!----> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:12rem;" data-v-70334359><li class="level-2" data-v-70334359><a href="/blog/blogs/git/2021/072402.html#本地库初始化" class="sidebar-link reco-side-本地库初始化" data-v-70334359>本地库初始化</a></li><li class="level-3" data-v-70334359><a href="/blog/blogs/git/2021/072402.html#设置签名" class="sidebar-link reco-side-设置签名" data-v-70334359>设置签名</a></li><li class="level-2" data-v-70334359><a href="/blog/blogs/git/2021/072402.html#基本操作" class="sidebar-link reco-side-基本操作" data-v-70334359>基本操作</a></li><li class="level-2" data-v-70334359><a href="/blog/blogs/git/2021/072402.html#分支管理" class="sidebar-link reco-side-分支管理" data-v-70334359>分支管理</a></li><li class="level-2" data-v-70334359><a href="/blog/blogs/git/2021/072402.html#分支操作" class="sidebar-link reco-side-分支操作" data-v-70334359>分支操作</a></li></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/blog/assets/js/app.14bc1ec9.js" defer></script><script src="/blog/assets/js/3.38776f79.js" defer></script><script src="/blog/assets/js/1.88753400.js" defer></script><script src="/blog/assets/js/74.892b6e0e.js" defer></script>
+  </body>
+</html>
